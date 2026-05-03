@@ -6,8 +6,9 @@ edition = "2024"
 [dependencies]
 actix-web = "4"
 bcrypt = "0.19.0"
+bigdecimal = { version = "0.4", features = ["serde"] }
 chrono = { version = "0.4.44", features = ["serde"] }
-diesel = { version = "2", features = ["postgres", "r2d2", "chrono", "uuid"] }
+diesel = { version = "2", features = ["postgres", "r2d2", "chrono", "uuid", "numeric"] }
 dotenvy = "0.15"
 futures-util = "0.3.32"
 jsonwebtoken = { version = "10.3.0", features = ["rust_crypto"] }

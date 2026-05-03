@@ -1,5 +1,5 @@
 use crate::{
-    db::{DbPool, establish_pool}, handlers::auth::{login, logout, registeruser}, middleware::auth::AuthMiddleware, models::user::{NewUser, User}, schema::users::dsl::*
+    db::{DbPool, establish_pool}, handlers::{auth::{login, logout, registeruser}, products::{create_product, delete_product, get_allproduct, get_product, update_product}}, middleware::auth::AuthMiddleware, models::user::{NewUser, User}, schema::users::dsl::*
 };
 use diesel::prelude::*;
 use std::env;
@@ -28,6 +28,11 @@ async fn main() -> std::io::Result<()> {
                 .service(registeruser)
                 .service(logout)
                 .service(login)
+                .service(create_product)
+                .service(get_allproduct)
+                .service(get_product)
+                .service(update_product)
+                .service(delete_product)
                 // .service(logout)
         )
     })

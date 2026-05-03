@@ -119,3 +119,4 @@ pub async fn logout(
         Err(_) => HttpResponse::InternalServerError().body("Logout failed"),
     }
 }
+
